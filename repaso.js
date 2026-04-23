@@ -156,3 +156,91 @@ function mostrarMensaje4() {
     }
     mostrarPopup("Mensaje 4", resultado);
 }
+
+// Cargar dinámicamente la animación al DOM cuando termine de cargar la página
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".animacion");
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="hero-wrap">
+      <div class="grid-view">
+        <div class="card">
+          <p class="title">Modo Explicación</p>
+          <p class="desc">Cada clic avanza un paso lógico en el ciclo real.</p>
+          
+          <div class="code-display" id="codePanel">
+            <div>for (let i = 8; i > 5; i--) {</div>
+            <div style="padding-left: 20px;">  resultado += "• Hola Mundo";</div>
+            <div>}</div>
+          </div>
+
+          <div class="stat-box" style="margin-bottom:10px; text-align:left;">
+            <p style="font-size:12px; color:#64748b; margin:0;">Estado Actual:</p>
+            <p id="explainText" style="font-size:14px; margin:4px 0; font-weight:500;">Presiona "Siguiente" para iniciar.</p>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <p style="font-size:11px; margin:0;">Variable i</p>
+              <p class="stat-val" id="valI">?</p>
+            </div>
+            <div class="stat-box">
+              <p style="font-size:11px; margin:0;">¿ i > 5 ?</p>
+              <p class="stat-val" id="valCond">?</p>
+            </div>
+          </div>
+
+          <div class="btn-grp">
+            <button class="btn-outline" onclick="resetAnimation()">Reiniciar</button>
+            <button id="nextBtn" onclick="stepAnimation()">Paso Siguiente →</button>
+          </div>
+          
+          <div class="output-card">
+            <p style="font-size:12px; font-weight:600; margin-bottom:8px;">CONSOLA DE SALIDA</p>
+            <div class="terminal" id="terminalOut">Esperando inicio...</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="title">Mapa de Ejecución</p>
+          <p class="desc">Sigue el flujo de datos a través de las estaciones.</p>
+          
+          <div class="canvas">
+            <div class="path"></div>
+            
+            <!-- Station 1: Init -->
+            <div class="station" id="pos0" style="top: 15%; left: 50%;">
+              <span>🚩</span>
+              <div class="label-tag">Inicialización<br><b>let i = 8</b></div>
+            </div>
+            
+            <!-- Station 2: Condition -->
+            <div class="station" id="pos1" style="top: 50%; left: 85%;">
+              <span>⚖️</span>
+              <div class="label-tag">Condición<br><b>i > 5</b></div>
+            </div>
+            
+            <!-- Station 3: Body -->
+            <div class="station" id="pos2" style="top: 85%; left: 50%;">
+              <span>💬</span>
+              <div class="label-tag">Ejecución<br><b>Hola Mundo</b></div>
+            </div>
+            
+            <!-- Station 4: Update -->
+            <div class="station" id="pos3" style="top: 50%; left: 15%;">
+              <span>🌀</span>
+              <div class="label-tag">Actualización<br><b>i--</b></div>
+            </div>
+
+            <div class="player" id="player"></div>
+          </div>
+          
+          <p style="font-size:12px; color:#64748b; margin-top:20px; text-align:center;">
+            <b>Dato curioso:</b> El ciclo se detiene en cuanto la condición da <i>false</i>.
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+});

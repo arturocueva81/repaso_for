@@ -1,4 +1,6 @@
-/* Modern youth-oriented design */
+/* repaso.css - Versión responsive y con contenedores más anchos */
+
+/* === Variables de color y breakpoints === */
 :root {
     --primary: #6a11cb;
     --secondary: #2575fc;
@@ -8,74 +10,94 @@
     --success: #20bf6b;
     --warning: #f7b731;
     --danger: #eb3b5a;
+
+    /* Espaciados y tamaños */
+    --container-max: 1100px;
+    --page-padding: 24px;
+    --card-padding: 24px;
+
+    /* Breakpoints */
+    --bp-lg: 1200px;
+    --bp-md: 992px;
+    --bp-sm: 768px;
+    --bp-xs: 480px;
 }
 
+/* === Reset básico === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* === Body y layout principal === */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    padding: 20px;
+    padding: var(--page-padding);
     color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    max-width: 900px;
+    max-width: var(--container-max);
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     overflow: hidden;
     backdrop-filter: blur(10px);
 }
 
+/* === Header === */
 header {
     background: linear-gradient(to right, var(--primary), var(--secondary));
     color: white;
-    padding: 30px;
+    padding: 36px;
     text-align: center;
 }
 
 header h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.6px;
 }
 
 header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-size: 1.05rem;
+    opacity: 0.92;
 }
 
+/* === Main content === */
 main {
-    padding: 30px;
+    padding: 40px;
 }
 
+/* === Exercise sections (cards) === */
 .exercise-section {
-    margin-bottom: 35px;
-    padding: 20px;
-    border-radius: 15px;
+    margin-bottom: 32px;
+    padding: var(--card-padding);
+    border-radius: 14px;
     background: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease;
     border-left: 5px solid var(--primary);
+    /* Anular float/animation por seguridad (prevención de "sube y baja") */
+    animation: none !important;
 }
 
 .exercise-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: none !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
 .exercise-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,42 +111,46 @@ main {
     height: 12px;
     background: var(--primary);
     border-radius: 50%;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
+/* === Button group & buttons === */
 .button-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 14px;
 }
 
 .btn {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    padding: 15px 25px;
+    padding: 12px 22px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.98rem;
+    transition: box-shadow 0.2s ease, opacity 0.15s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
+    min-width: 160px;
     text-align: center;
 }
 
+/* Suavizar el hover sin desplazar verticalmente */
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+    transform: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    opacity: 0.98;
 }
 
 .btn:active {
-    transform: translateY(1px);
+    transform: none;
 }
 
+/* Button styles */
 .btn-primary {
     background: linear-gradient(to right, var(--primary), var(--secondary));
     color: white;
@@ -140,32 +166,26 @@ main {
     color: white;
 }
 
+/* Icons before text */
 .btn::before {
     margin-right: 8px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
-.btn-primary::before {
-    content: "📚";
-}
+.btn-primary::before { content: "📚"; }
+.btn-secondary::before { content: "💬"; }
+.btn-tertiary::before { content: "✅"; }
 
-.btn-secondary::before {
-    content: "💬";
-}
-
-.btn-tertiary::before {
-    content: "✅";
-}
-
+/* === Footer === */
 footer {
     background: var(--dark);
     color: white;
     text-align: center;
     padding: 20px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
-/* Popup styles */
+/* === Popup styles (sin cambios funcionales) === */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -185,41 +205,35 @@ footer {
     border-radius: 15px;
     padding: 30px;
     max-width: 90%;
-    width: 500px;
+    width: 520px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     position: relative;
-    animation: popup-appear 0.4s ease;
+    animation: popup-appear 0.36s ease;
 }
 
 @keyframes popup-appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .popup-content h3 {
     color: var(--primary);
     margin-top: 0;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     border-bottom: 2px solid #eee;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
     text-align: center;
 }
 
 .popup-content pre {
     background: #f8f9fa;
     border-radius: 10px;
-    padding: 20px;
+    padding: 16px;
     font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-height: 300px;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-height: 320px;
     overflow-y: auto;
     white-space: pre-wrap;
     text-align: left;
@@ -227,66 +241,105 @@ footer {
 
 .popup-close {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
+    top: 12px;
+    right: 16px;
+    font-size: 1.4rem;
     background: none;
     border: none;
     cursor: pointer;
     color: #999;
-    transition: color 0.2s;
+    transition: color 0.18s;
 }
 
-.popup-close:hover {
-    color: var(--danger);
+.popup-close:hover { color: var(--danger); }
+
+/* === Responsive adjustments === */
+
+/* Large desktops ( > 1200px ) - make container a touch wider on very large screens */
+@media (min-width: 1201px) {
+    :root { --container-max: 1200px; }
+    header h1 { font-size: 3rem; }
+    .btn { min-width: 180px; padding: 14px 26px; }
 }
 
-/* Responsive design */
+/* Medium screens (<= 1200px) */
+@media (max-width: 1200px) {
+    main { padding: 36px; }
+    .container { margin: 12px auto; }
+}
+
+/* Tablets and small laptops (<= 992px) */
+@media (max-width: 992px) {
+    .container { max-width: 920px; }
+    header { padding: 30px; }
+    header h1 { font-size: 2.4rem; }
+    main { padding: 32px; }
+    .exercise-section { padding: 20px; border-radius: 12px; }
+    .btn { min-width: 150px; padding: 12px 20px; font-size: 0.95rem; }
+}
+
+/* Small tablets and large phones (<= 768px) - stack layouts */
 @media (max-width: 768px) {
-    .container {
-        border-radius: 15px;
+    :root { --container-max: 100%; }
+    .container { margin: 8px; border-radius: 12px; }
+    main { padding: 20px; }
+    .grid-two {
+        display: block;
     }
-    
-    header {
-        padding: 20px 15px;
-    }
-    
-    header h1 {
-        font-size: 2.2rem;
-    }
-    
-    main {
-        padding: 20px 15px;
-    }
-    
+    .exercise-section h2 { font-size: 1.4rem; }
+    .button-group { gap: 12px; }
+    .btn { width: 100%; min-width: 0; }
+}
+
+/* Extra small phones (<= 480px) */
+@media (max-width: 480px) {
+    header { padding: 20px; }
+    header h1 { font-size: 1.6rem; }
+    main { padding: 16px; }
+    .exercise-section { padding: 16px; }
+    .btn { padding: 10px 14px; font-size: 0.95rem; border-radius: 10px; }
+    .popup-content { padding: 16px; width: 95%; }
+    .popup-content h3 { font-size: 1.25rem; }
+}
+
+/* === Utility tweaks for specific elements that could feel apretados === */
+
+/* Slightly larger spacing in the main cards content */
+.exercise-section p,
+.exercise-section li {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Make code blocks and terminals more roomy */
+.code-block, pre, code {
+    font-size: 0.95rem;
+}
+
+/* If you use a terminal-like output box, give it breathing room */
+.terminal {
+    min-height: 120px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #0f172a;
+    color: #38bdf8;
+    font-family: monospace;
+    overflow-y: auto;
+}
+
+/* Buttons group on small screens - vertical stacked look */
+@media (max-width: 640px) {
     .button-group {
+        display: flex;
         flex-direction: column;
     }
-    
-    .btn {
-        width: 100%;
-    }
-    
-    .popup-content {
-        width: 95%;
-        padding: 20px;
-    }
 }
 
-/* Fun animations */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+/* === Accessibility & focus styles === */
+.btn:focus,
+.popup-close:focus {
+    outline: 3px solid rgba(37,99,235,0.18);
+    outline-offset: 2px;
 }
 
-.exercise-section {
-    animation: float 3s ease-in-out infinite;
-    animation-delay: calc(0.2s * var(--i));
-}
+/* End of repaso.css */
