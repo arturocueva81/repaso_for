@@ -1,69 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Repaso Ciclo FOR</title>
-    <link rel="stylesheet" href="repaso.css">
-    <link rel="stylesheet" href="animacionBucle.css">
+    <link rel="stylesheet" href="repaso.css" />
+    <link rel="stylesheet" href="animacionBucle.css" />
     <script src="repaso.js"></script>
     <script src="animacionBucle.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
-    
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Bucle FOR</h1>
-        </header>
-        
-        <main>
-            <section class="exercise-section">
-                <h2>El Ciclo FOR</h2>
-                <p>El ciclo FOR es una estructura de control que permite repetir un bloque de código un número específico de veces.</p>
-                <div class="animacion">
-                    
-                </div>
-            </section>
-            <section class="exercise-section">
-                <h2>🔥Loops Básicos (Ascendentes y descendentes)</h2>
-                <div class="button-group">
-                    <button class="btn btn-primary" onclick="mostrar(1)">Ejercicio 1</button>
-                    <button class="btn btn-primary" onclick="mostrar(2)">Centenas</button>
-                    <button class="btn btn-primary" onclick="mostrar(3)">Centenas Regresivo</button>
-                </div>
-            </section>
-            
-            <section class="exercise-section">
-                <h2>💬 3 Mensajes  (bajo ciertas condiciones)</h2>
-                <div class="button-group">
-                    <button class="btn btn-secondary" onclick="mostrar(4)">Mensaje 1</button>
-                    <button class="btn btn-secondary" onclick="mostrar(5)">Mensaje 2</button>
-                    <button class="btn btn-secondary" onclick="mostrar(6)">Mensaje 3</button>
-                    <button class="btn btn-secondary" onclick="mostrar(7)">Mensaje 4</button>
-                </div>
-            </section>
-            
-            <section class="exercise-section">
-                <h2>✖️ Tablas de multiplicar</h2>
-                <div class="button-group">
-                    <button class="btn btn-tertiary" onclick="mostrar(8)">1</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(9)">2</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(10)">3</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(11)">4</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(12)">5</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(13)">6</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(14)">7</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(15)">8</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(16)">9</button>
-                    <button class="btn btn-tertiary" onclick="mostrar(17)">10</button>
-                </div>
-            </section>
-        </main>
-        
-        <footer>
-            <p> Powered by Arturo Cueva</p>
-        </footer>
+      <header>
+        <h1>Bucle FOR</h1>
+      </header>
+
+      <main>
+        <section class="exercise-section">
+          <h2>El Ciclo FOR</h2>
+          <p>
+            El ciclo <strong>FOR</strong>
+            es un "robot" que repite una tarea por nosotros. Funciona bajo una
+            estructura de 3 pasos: establece un inicio, define una condición de
+            parada y actualiza el contador en cada vuelta.
+          </p>
+          <div
+            style="
+              background: #f1f5f9;
+              padding: 15px;
+              border-radius: 8px;
+              margin: 15px 0;
+              border-left: 4px solid var(--secondary);
+            "
+          >
+            <p style="margin-bottom: 5px">
+              <strong>💡 Estructura clave:</strong>
+            </p>
+            <code
+              style="
+                display: block;
+                font-family: monospace;
+                color: var(--primary);
+              "
+              >for (inicio ; condición ; actualizacion) { codigo }</code
+            >
+            <p>
+              - Inicio. Ejemplo:(let i = 0) <br>Es el punto de partida. Aquí creamos
+              una variable (normalmente llamada i) que funciona como un contador
+              para saber en qué vuelta vamos.
+            </p>
+            <p>
+              - Condición. Ejemplo: (i < 10) <br>Es la regla de oro. El ciclo seguirá
+              funcionando mientras esto sea verdad. En cuanto la condición sea
+              falsa, el robot se detiene.
+            </p>
+            <p>
+              - Actualización. Ejemplo: (i++) <br>Es lo que pasa al final de cada vuelta.
+              Indicamos si el contador debe subir o bajar para avanzar a la
+              siguiente repetición.
+            </p>
+            <p>
+                - Codigo. Es lo que queremos que el robot haga en cada vuelta. Puede ser cualquier tarea, como imprimir un mensaje o realizar cálculos. El robot seguirá
+                haciendo esto una y otra vez hasta que la condición deje de ser verdadera.
+            </p>
+              En resumen, el ciclo FOR es como un asistente que hace el trabajo repetitivo
+              por nosotros, siguiendo las instrucciones que le damos en su estructura.
+          </div>
+
+          <div class="animacion">
+            <!-- Aquí se carga tu animación -->
+          </div>
+          <div class="animacion"></div>
+        </section>
+        <section class="exercise-section">
+          <h2>🔥Loops Básicos (Ascendentes y descendentes)</h2>
+          <div class="button-group">
+            <button class="btn btn-primary" onclick="mostrar(1)">
+              Ejercicio 1
+            </button>
+            <button class="btn btn-primary" onclick="mostrar(2)">
+              Centenas
+            </button>
+            <button class="btn btn-primary" onclick="mostrar(3)">
+              Centenas Regresivo
+            </button>
+          </div>
+        </section>
+
+        <section class="exercise-section">
+          <h2>💬 3 Mensajes (bajo ciertas condiciones)</h2>
+          <div class="button-group">
+            <button class="btn btn-secondary" onclick="mostrar(4)">
+              Mensaje 1
+            </button>
+            <button class="btn btn-secondary" onclick="mostrar(5)">
+              Mensaje 2
+            </button>
+            <button class="btn btn-secondary" onclick="mostrar(6)">
+              Mensaje 3
+            </button>
+            <button class="btn btn-secondary" onclick="mostrar(7)">
+              Mensaje 4
+            </button>
+          </div>
+        </section>
+
+        <section class="exercise-section">
+          <h2>✖️ Tablas de multiplicar</h2>
+          <div class="button-group">
+            <button class="btn btn-tertiary" onclick="mostrar(8)">1</button>
+            <button class="btn btn-tertiary" onclick="mostrar(9)">2</button>
+            <button class="btn btn-tertiary" onclick="mostrar(10)">3</button>
+            <button class="btn btn-tertiary" onclick="mostrar(11)">4</button>
+            <button class="btn btn-tertiary" onclick="mostrar(12)">5</button>
+            <button class="btn btn-tertiary" onclick="mostrar(13)">6</button>
+            <button class="btn btn-tertiary" onclick="mostrar(14)">7</button>
+            <button class="btn btn-tertiary" onclick="mostrar(15)">8</button>
+            <button class="btn btn-tertiary" onclick="mostrar(16)">9</button>
+            <button class="btn btn-tertiary" onclick="mostrar(17)">10</button>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Powered by Arturo Cueva</p>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
